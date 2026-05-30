@@ -1,0 +1,23 @@
+
+{
+  "short_name": "Birthday Sayang",
+  "name": "Happy Birthday Sayang ❤️",
+  "description": "A cinematic, romantic birthday celebration for my Queen.",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0a0a0a",
+  "display": "standalone",
+  "theme_color": "#FFD700",
+  "orientation": "portrait-primary"
+}

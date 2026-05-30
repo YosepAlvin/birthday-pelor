@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Sacramento&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cinematic Color Palette - Enhanced with Purple/Blue warm glow */
+    --gold: #FFD700;
+    --dark-bg: rgb(4, 4, 10);
+    --primary-glow: rgba(147, 112, 219, 0.18); /* Purple */
+    --secondary-glow: rgba(70, 130, 180, 0.12); /* SteelBlue */
+    
+    /* Shadcn essential variables */
+    --primary: 45 100% 50%; /* Gold-ish */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 260 60% 70%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 280 60% 60%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Reusable Cinematic Glow Effects */
+    --glow-soft: 0 0 15px rgba(255, 215, 0, 0.15);
+    --glow-medium: 0 0 25px rgba(255, 215, 0, 0.35);
+    --glow-bright: 0 0 45px rgba(255, 215, 0, 0.6);
+    --glass-bg: rgba(255, 255, 255, 0.015);
+    --glass-border: rgba(255, 255, 255, 0.06);
+
+    /* Responsive Typography Scaling with clamp() */
+    --text-hero: clamp(2.5rem, 10vw + 0.5rem, 8rem);
+    --text-hero-sub: clamp(1.2rem, 4vw + 0.5rem, 3.5rem);
+    --text-section-title: clamp(1.8rem, 5vw + 0.5rem, 5rem);
+    --text-breathing: clamp(1.1rem, 2.5vw + 0.5rem, 3rem);
+    --text-body: clamp(0.9rem, 0.8vw + 0.4rem, 1.15rem);
+    --text-handwriting: clamp(14px, 1.8vw, 28px);
+    --text-quote: clamp(1rem, 1.5vw + 0.5rem, 1.8rem);
+    --text-caption: clamp(0.7rem, 0.4vw + 0.4rem, 0.9rem);
+
+    /* Responsive Spacing with clamp() */
+    --spacing-xs: clamp(0.4rem, 0.8vw, 0.8rem);
+    --spacing-sm: clamp(0.8rem, 1.5vw, 1.5rem);
+    --spacing-md: clamp(1.5rem, 3vw, 3rem);
+    --spacing-lg: clamp(3rem, 6vw, 6rem);
+    --spacing-xl: clamp(5rem, 10vw, 10rem);
+    --safe-top-padding: 140px;
+  }
+
+  body {
+    background-color: var(--dark-bg);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@layer utilities {
+  /* Typography Utilities */
+  .text-clamp-hero { font-size: var(--text-hero); line-height: 1.1; }
+  .text-clamp-hero-sub { font-size: var(--text-hero-sub); line-height: 1.3; }
+  .text-clamp-section { font-size: var(--text-section-title); line-height: 1.2; }
+  .text-clamp-breathing { font-size: var(--text-breathing); line-height: 1.5; }
+  .text-clamp-body { font-size: var(--text-body); line-height: 1.7; }
+  .text-clamp-handwriting { font-size: var(--text-handwriting); line-height: 1.2; }
+  .text-clamp-quote { font-size: var(--text-quote); line-height: 1.6; font-style: italic; }
+  .text-clamp-caption { font-size: var(--text-caption); line-height: 1.4; letter-spacing: 0.05em; text-transform: uppercase; }
+
+  /* Spacing Utilities */
+  .p-responsive { padding: var(--spacing-md); }
+  .px-responsive { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
+  .py-responsive { padding-top: var(--spacing-md); padding-bottom: var(--spacing-md); }
+  .pt-safe-hero { padding-top: var(--safe-top-padding); }
+  
+  .content-max-width { max-width: 1200px; margin-left: auto; margin-right: auto; }
+  .hero-max-width { max-width: 700px; margin-left: auto; margin-right: auto; }
+  .prose-max-width { max-width: 65ch; margin-left: auto; margin-right: auto; }
+
+  /* Polaroid Container Specific */
+  .polaroid-item {
+    position: relative;
+    overflow: hidden;
+    background: white;
+    padding: 12px 12px 60px 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+  
+  .polaroid-handwriting {
+    font-family: 'Sacramento', cursive;
+    font-size: var(--text-handwriting);
+    line-height: 1.2;
+    color: #1a1a1a;
+    text-align: center;
+    margin-top: 10px;
+    padding: 0 5px;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  /* Readability Enhancements */
+  .text-shadow-sm { text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+  .text-shadow-md { text-shadow: 0 2px 4px rgba(0,0,0,0.7); }
+  .text-shadow-lg { text-shadow: 0 4px 8px rgba(0,0,0,0.9); }
+  
+  .backdrop-blur-cinematic { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); background: rgba(0,0,0,0.4); }
+  .text-balance { text-wrap: balance; }
+
+  .font-serif { font-family: 'Cormorant Garamond', serif; }
+  .font-playfair { font-family: 'Playfair Display', serif; }
+  .font-sans { font-family: 'Inter', sans-serif; }
+  .font-inter { font-family: 'Inter', sans-serif; }
+  .font-accent { font-family: 'Sacramento', cursive; }
+
+  /* Grain Overlay with Vignette */
+  .bg-grain {
+    position: relative;
+    overflow: hidden;
+  }
+  .bg-grain::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    filter: contrast(120%) brightness(120%);
+  }
+
+  .bg-grain::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 49;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.6) 100%);
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.4);
+  }
+
+  /* Chromatic Aberration & Lens Blur */
+  .cinematic-lens {
+    position: relative;
+  }
+  .cinematic-lens::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 48;
+    background: transparent;
+    box-shadow: 0 0 100px rgba(147, 112, 219, 0.05);
+    mix-blend-mode: screen;
+  }
+
+  /* Handwriting Font Class */
+  .font-handwriting {
+    font-family: 'Sacramento', cursive;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  }
+
+  /* Tape Effect */
+  .tape-effect {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transform: rotate(-3deg);
+  }
+
+  /* Cinematic Glass */
+  .glass-cinematic {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  /* Text Glows */
+  .text-glow-gold {
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.3);
+  }
+
+  .text-glow-pink {
+    text-shadow: 0 0 15px rgba(255, 105, 180, 0.5), 0 0 30px rgba(255, 105, 180, 0.3);
+  }
+
+  .text-glow-white {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.1);
+  }
+
+  /* Keyframe Animation Classes */
+  .animate-sakura {
+    animation: sakura-fall linear infinite;
+  }
+  .animate-lantern {
+    animation: lantern-float ease-in-out infinite;
+  }
+  .animate-sparkle {
+    animation: sparkle-twinkle ease-in-out infinite;
+  }
+  .animate-float-continuous {
+    animation: float-continuous 6s ease-in-out infinite;
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 2.5s ease-in-out infinite;
+  }
+  .animate-float-orb {
+    animation: float-orb 12s ease-in-out infinite;
+  }
+}
+
+@keyframes sakura-fall {
+  0% { transform: translate(0, -10%) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translate(100px, 100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes lantern-float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-40px) rotate(2deg); }
+}
+
+@keyframes sparkle-twinkle {
+  0%, 100% { opacity: 0.3; scale: 0.8; }
+  50% { opacity: 1; scale: 1.2; }
+}
+
+@keyframes float-continuous {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --spacing-md: clamp(1rem, 4vw, 1.4rem);
+    --spacing-lg: clamp(2.5rem, 7vw, 4.5rem);
+    --safe-top-padding: 104px;
+    --text-quote: clamp(0.95rem, 2.8vw + 0.4rem, 1.35rem);
+    --text-breathing: clamp(1rem, 4vw + 0.2rem, 1.65rem);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.4); 
+    transform: scale(1); 
+  }
+  50% { 
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); 
+    transform: scale(1.1); 
+  }
+}
+
+@keyframes float-orb {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  33% { transform: translateY(-30px) translateX(20px); }
+  66% { transform: translateY(20px) translateX(-20px); }
+}
+
+@keyframes grow-line {
+  0% { height: 0%; }
+  100% { height: 100%; }
+}
+
+@keyframes reveal-fade {
+  0% { opacity: 0; transform: scale(0.7); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes hover-glow {
+  0% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+  100% { box-shadow: 0 0 35px rgba(255, 215, 0, 1); }
+}
+
+@keyframes grain-dance {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -5%); }
+  20% { transform: translate(-10%, 5%); }
+  30% { transform: translate(5%, -10%); }
+  40% { transform: translate(-5%, 15%); }
+  50% { transform: translate(-10%, -5%); }
+  60% { transform: translate(15%, 0); }
+  70% { transform: translate(0, 10%); }
+  80% { transform: translate(-15%, 0); }
+  90% { transform: translate(10%, 5%); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 215, 0, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 215, 0, 0.8);
+  box-shadow: var(--glow-soft);
+}
